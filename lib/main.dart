@@ -1,3 +1,4 @@
+import 'package:animations/view/pages/container.dart';
 import 'package:animations/view/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: "Animações ",
-      home: Home(),
+      home: ContainerProperties(),
       debugShowCheckedModeBanner: false,
     );
   }

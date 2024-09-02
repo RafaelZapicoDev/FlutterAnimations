@@ -1,3 +1,6 @@
+import 'package:animations/view/pages/hero_begin.dart';
+import 'package:animations/view/pages/opacity.dart';
+import 'package:animations/view/pages/container.dart';
 import 'package:animations/view/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -15,17 +18,56 @@ class _MenuDrawerState extends State<MenuDrawer> {
       child: ListView(
         children: [
           const Padding(padding: EdgeInsets.only(top: 10)),
-          ListTile(
-            hoverColor: const Color.fromARGB(255, 246, 246, 248),
-            title: const Text("Home"),
-            subtitle: const Text("Página inicial"),
-            leading: const Icon(Icons.home),
-            trailing: const Icon(Icons.arrow_right),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Home()));
-            },
+          Theme(
+            data: ThemeData().copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              title: const Text("Animações implícitas"),
+              children: [
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("AnimatedContainer"),
+                  leading: const Icon(Icons.add_box),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ContainerProperties()));
+                  },
+                ),
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("AnimatedOpacity"),
+                  leading: const Icon(Icons.opacity),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OpacityProperties()));
+                  },
+                ),
+              ],
+            ),
           ),
+          const Padding(padding: EdgeInsets.only(top: 10)),
+          Theme(
+            data: ThemeData().copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              title: const Text("Animações explícitas"),
+              children: [
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Hero Animation"),
+                  leading: const Icon(Icons.screen_share_outlined),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HeroAnimation()));
+                  },
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
