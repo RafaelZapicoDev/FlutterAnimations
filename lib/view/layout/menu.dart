@@ -1,3 +1,4 @@
+import 'package:animations/view/pages/animated_transition.dart';
 import 'package:animations/view/pages/hero_begin.dart';
 import 'package:animations/view/pages/opacity.dart';
 import 'package:animations/view/pages/container.dart';
@@ -63,6 +64,17 @@ class _MenuDrawerState extends State<MenuDrawer> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const HeroAnimation()));
+                  },
+                ),
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Transition Animations"),
+                  leading: const Icon(Icons.bookmarks_sharp),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AnimatedTransition()));
                   },
                 ),
               ],
