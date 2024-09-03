@@ -3,6 +3,7 @@ import 'package:animations/view/pages/hero_begin.dart';
 import 'package:animations/view/pages/opacity.dart';
 import 'package:animations/view/pages/container.dart';
 import 'package:animations/view/pages/home.dart';
+import 'package:animations/view/pages/staggered_animation.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawer extends StatefulWidget {
@@ -75,6 +76,17 @@ class _MenuDrawerState extends State<MenuDrawer> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const AnimatedTransition()));
+                  },
+                ),
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Sttagered Animations"),
+                  leading: const Icon(Icons.animation_rounded),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StaggeredAnimation()));
                   },
                 ),
               ],

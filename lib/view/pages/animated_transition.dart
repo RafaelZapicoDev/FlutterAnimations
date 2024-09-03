@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:animations/view/layout/appbar.dart';
 import 'package:animations/view/layout/menu.dart';
+import 'package:animations/view/pages/container.dart';
 import 'package:animations/view/pages/hero_begin.dart';
 import 'package:flutter/material.dart';
 
@@ -28,17 +29,14 @@ class AnimatedTransitionState extends State<AnimatedTransition> {
             child: Container(
               width: 450,
               decoration: const BoxDecoration(color: Colors.white),
-              child: Center(
+              child: const Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(28.0),
+                  padding: EdgeInsets.all(28.0),
                   /////////////////////////////////////////////////
-                  child: Hero(
-                      tag: 'exemplo',
-                      child: Image.asset(
-                        'tailand.jpg',
-                        width: 600,
-                        height: 400,
-                      )),
+                  child: Icon(
+                    Icons.directions_walk_sharp,
+                    size: 60,
+                  ),
                   /////////////////////////////////////////////////
                 ),
               ),
@@ -54,10 +52,21 @@ class AnimatedTransitionState extends State<AnimatedTransition> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const HeroAnimation(),
+                          const ContainerProperties(),
+                      transitionDuration: const Duration(milliseconds: 745),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        return child;
+                        const begin = Offset(0.0, 1.0);
+                        const end = Offset.zero;
+                        const curve = Curves.bounceOut;
+
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
                       },
                     ),
                   );
@@ -69,10 +78,10 @@ class AnimatedTransitionState extends State<AnimatedTransition> {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.navigate_before_rounded),
+                    Icon(Icons.animation_rounded),
                     Padding(padding: EdgeInsets.only(right: 20)),
                     Text(
-                      "Do início",
+                      "Animar transição",
                     ),
                   ],
                 )),
@@ -90,7 +99,7 @@ class AnimatedTransitionState extends State<AnimatedTransition> {
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                       child: Text(
-                        "Desde que os widgets possuam a mesma tag em diferentes páginas, será possível utilizar a hero animation entre eles.",
+                        "Também é possível criar uma animação personalizada para fazer a transição entre as páginas, utilizando o PageRouteBuilder. Com seu parâmetro transition builder é possível especificar qualquer tipo de animação para a transição, assim como a sua curva de animação.",
                         textAlign: TextAlign.justify,
                       ),
                     ),
