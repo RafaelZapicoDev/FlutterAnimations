@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:animations/view/layout/menu.dart';
 import 'package:flutter/material.dart';
 
 class StaggeredAnimation extends StatefulWidget {
@@ -80,11 +81,12 @@ class StaggeredAnimationState extends State<StaggeredAnimation>
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 205, 206, 206),
       appBar: AppBar(
+        centerTitle: true,
         title: const Text("Staggered Animations"),
         backgroundColor: Colors.indigoAccent,
         foregroundColor: Colors.white,
       ),
-      drawer: const Drawer(),
+      drawer: const MenuDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
