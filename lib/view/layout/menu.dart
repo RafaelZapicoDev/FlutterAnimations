@@ -1,11 +1,13 @@
-import 'package:animations/view/pages/animated_positioned.dart';
-import 'package:animations/view/pages/animated_transition.dart';
-import 'package:animations/view/pages/hero_begin.dart';
-import 'package:animations/view/pages/opacity.dart';
-import 'package:animations/view/pages/container.dart';
-import 'package:animations/view/pages/rotation.dart';
-import 'package:animations/view/pages/staggered_animation.dart';
-import 'package:animations/view/pages/list_animated.dart';
+import 'package:animations/view/pages/custom/floating.dart';
+import 'package:animations/view/pages/custom/list_custom.dart';
+import 'package:animations/view/pages/implicit/animated_positioned.dart';
+import 'package:animations/view/pages/explicit/animated_transition.dart';
+import 'package:animations/view/pages/explicit/hero_begin.dart';
+import 'package:animations/view/pages/implicit/opacity.dart';
+import 'package:animations/view/pages/implicit/container.dart';
+import 'package:animations/view/pages/implicit/rotation.dart';
+import 'package:animations/view/pages/explicit/staggered_animation.dart';
+import 'package:animations/view/pages/implicit/list_animated.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawer extends StatefulWidget {
@@ -85,7 +87,6 @@ class _MenuDrawerState extends State<MenuDrawer> {
               ],
             ),
           ),
-          const Padding(padding: EdgeInsets.only(top: 10)),
           Theme(
             data: ThemeData().copyWith(dividerColor: Colors.transparent),
             child: ExpansionTile(
@@ -124,17 +125,36 @@ class _MenuDrawerState extends State<MenuDrawer> {
                             builder: (context) => const StaggeredAnimation()));
                   },
                 ),
-                // ListTile(
-                //   hoverColor: const Color.fromARGB(255, 246, 246, 248),
-                //   title: const Text("Text Animations pt.1"),
-                //   leading: const Icon(Icons.text_snippet_sharp),
-                //   onTap: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const TextAnimations1()));
-                //   },
-                // ),
+              ],
+            ),
+          ),
+          Theme(
+            data: ThemeData().copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              title: const Text("Animações customizadas"),
+              children: [
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Floating Animation"),
+                  leading: const Icon(Icons.water_drop_outlined),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FloatingAnimation()));
+                  },
+                ),
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Custom List Animation"),
+                  leading: const Icon(Icons.list_rounded),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ListAnimation()));
+                  },
+                ),
               ],
             ),
           )

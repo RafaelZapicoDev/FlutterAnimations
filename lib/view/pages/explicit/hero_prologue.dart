@@ -1,21 +1,21 @@
 import 'package:animations/view/layout/appbar.dart';
 import 'package:animations/view/layout/menu.dart';
-import 'package:animations/view/pages/hero_end.dart';
+import 'package:animations/view/pages/explicit/hero_begin.dart';
 import 'package:flutter/material.dart';
 
-class HeroAnimation extends StatefulWidget {
-  const HeroAnimation({super.key});
+class HeroPrologue extends StatefulWidget {
+  const HeroPrologue({super.key});
 
   @override
-  State<StatefulWidget> createState() => HeroAnimationState();
+  State<StatefulWidget> createState() => HeroPrologueState();
 }
 
-class HeroAnimationState extends State<HeroAnimation> {
+class HeroPrologueState extends State<HeroPrologue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 205, 206, 206),
-      appBar: CustomAppBar(nome: "Hero Begin"),
+      appBar: CustomAppBar(nome: "Hero Prologue"),
       drawer: const MenuDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,9 +33,9 @@ class HeroAnimationState extends State<HeroAnimation> {
                   child: Hero(
                       tag: 'exemplo',
                       child: Image.asset(
-                        'finland.jpg',
-                        width: 200,
-                        height: 200,
+                        'tailand.jpg',
+                        width: 600,
+                        height: 400,
                       )),
                   /////////////////////////////////////////////////
                 ),
@@ -52,7 +52,7 @@ class HeroAnimationState extends State<HeroAnimation> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const HeroEnd(),
+                          const HeroAnimation(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
                         return child;
@@ -67,10 +67,10 @@ class HeroAnimationState extends State<HeroAnimation> {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.navigate_next_rounded),
+                    Icon(Icons.navigate_before_rounded),
                     Padding(padding: EdgeInsets.only(right: 20)),
                     Text(
-                      "Navegar",
+                      "Do início",
                     ),
                   ],
                 )),
@@ -88,7 +88,7 @@ class HeroAnimationState extends State<HeroAnimation> {
                       padding:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 40),
                       child: Text(
-                        " A animação Hero no flutter identifica dois elementos em páginas diferentes e liga eles através de uma tag, causando a impressão que ele transicionou de aba junto com o usuário. Ao clicar no botão navegar, nota-se que o usuário é enviado para outra página, mas a imagem possui um efeito de aumentar. Esse tipo de animação tabém pode ser utilizada com outros tipos de widget, como o container.",
+                        "Desde que os widgets possuam a mesma tag em diferentes páginas, será possível utilizar a hero animation entre eles.",
                         textAlign: TextAlign.justify,
                       ),
                     ),

@@ -1,7 +1,7 @@
 import 'package:animations/view/layout/appbar.dart';
 import 'package:animations/view/layout/menu.dart';
 
-import 'package:animations/view/pages/hero_prologue.dart';
+import 'package:animations/view/pages/explicit/hero_prologue.dart';
 import 'package:flutter/material.dart';
 
 class HeroEnd extends StatefulWidget {

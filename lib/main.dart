@@ -1,8 +1,9 @@
-import 'package:animations/view/pages/container.dart';
+import 'package:animations/view/pages/implicit/container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 void main() async {
-  //inicializando com o firebase
+  Animate.restartOnHotReload = true;
 
   runApp(const MyApp());
 }
