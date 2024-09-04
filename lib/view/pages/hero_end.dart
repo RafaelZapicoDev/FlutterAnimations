@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:animations/view/layout/appbar.dart';
 import 'package:animations/view/layout/menu.dart';
-import 'package:animations/view/pages/hero_begin.dart';
+
 import 'package:animations/view/pages/hero_prologue.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +12,6 @@ class HeroEnd extends StatefulWidget {
 }
 
 class HeroEndState extends State<HeroEnd> {
-  bool _visible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

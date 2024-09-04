@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:animations/view/layout/appbar.dart';
 import 'package:animations/view/layout/menu.dart';
 import 'package:animations/view/pages/container.dart';
-import 'package:animations/view/pages/hero_begin.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedTransition extends StatefulWidget {

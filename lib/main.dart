@@ -1,5 +1,4 @@
 import 'package:animations/view/pages/container.dart';
-import 'package:animations/view/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

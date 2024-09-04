@@ -1,12 +1,11 @@
-import 'package:animations/view/pages/animatedPositioned.dart';
+import 'package:animations/view/pages/animated_positioned.dart';
 import 'package:animations/view/pages/animated_transition.dart';
 import 'package:animations/view/pages/hero_begin.dart';
 import 'package:animations/view/pages/opacity.dart';
 import 'package:animations/view/pages/container.dart';
-import 'package:animations/view/pages/home.dart';
 import 'package:animations/view/pages/rotation.dart';
 import 'package:animations/view/pages/staggered_animation.dart';
-import 'package:animations/view/pages/texts1.dart';
+import 'package:animations/view/pages/list_animated.dart';
 import 'package:flutter/material.dart';
 
 class MenuDrawer extends StatefulWidget {
@@ -72,6 +71,17 @@ class _MenuDrawerState extends State<MenuDrawer> {
                             builder: (context) => const AnimatedPosition()));
                   },
                 ),
+                ListTile(
+                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                  title: const Text("Animated List"),
+                  leading: const Icon(Icons.list_alt),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ListAnimated()));
+                  },
+                ),
               ],
             ),
           ),
@@ -114,17 +124,17 @@ class _MenuDrawerState extends State<MenuDrawer> {
                             builder: (context) => const StaggeredAnimation()));
                   },
                 ),
-                ListTile(
-                  hoverColor: const Color.fromARGB(255, 246, 246, 248),
-                  title: const Text("Text Animations pt.1"),
-                  leading: const Icon(Icons.text_snippet_sharp),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const TextAnimations1()));
-                  },
-                ),
+                // ListTile(
+                //   hoverColor: const Color.fromARGB(255, 246, 246, 248),
+                //   title: const Text("Text Animations pt.1"),
+                //   leading: const Icon(Icons.text_snippet_sharp),
+                //   onTap: () {
+                //     Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => const TextAnimations1()));
+                //   },
+                // ),
               ],
             ),
           )

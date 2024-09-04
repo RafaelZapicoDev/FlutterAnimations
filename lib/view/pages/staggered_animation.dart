@@ -21,7 +21,7 @@ class StaggeredAnimationState extends State<StaggeredAnimation>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1900),
     );
 
     _starScaleAnimations = List.generate(5, (index) {
